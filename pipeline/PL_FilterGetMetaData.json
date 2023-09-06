@@ -1,5 +1,5 @@
 {
-	"name": "PLFilterGetMetaData",
+	"name": "PL_FilterGetMetaData",
 	"properties": {
 		"activities": [
 			{
@@ -47,6 +47,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
