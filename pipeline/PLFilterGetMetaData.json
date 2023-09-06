@@ -1,0 +1,36 @@
+{
+	"name": "PLFilterGetMetaData",
+	"properties": {
+		"activities": [
+			{
+				"name": "Act_FilterAnimal",
+				"type": "Filter",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('AnimalsArray')",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@not(equals(item(),'ccc'))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"AnimalsArray": {
+				"type": "Array",
+				"defaultValue": [
+					"aaa",
+					"bbb",
+					"ccc"
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-05T23:53:31Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
