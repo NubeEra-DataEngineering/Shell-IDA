@@ -62,10 +62,7 @@
 							"inputs": [
 								{
 									"referenceName": "DS_Input",
-									"type": "DatasetReference",
-									  "parameters":{  
-									     "MyFolderPath":"@pipeline().parameters.DelimitedTextSource"
-									  }
+									"type": "DatasetReference"
 								}
 							],
 							"outputs": [
