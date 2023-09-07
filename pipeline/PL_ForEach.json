@@ -15,8 +15,8 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Get Metadata1",
-							"type": "GetMetadata",
+							"name": "MyCopyActivity",
+							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
@@ -27,21 +27,50 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"dataset": {
+								"source": {
+									"type": "DelimitedTextSource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"recursive": true,
+										"enablePartitionDiscovery": false
+									},
+									"formatSettings": {
+										"type": "DelimitedTextReadSettings"
+									}
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
 									"referenceName": "DS_Input",
 									"type": "DatasetReference"
-								},
-								"fieldList": [
-									"itemName"
-								],
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
 								}
-							}
+							],
+							"outputs": [
+								{
+									"referenceName": "DS_Output",
+									"type": "DatasetReference"
+								}
+							]
 						}
 					]
 				}
