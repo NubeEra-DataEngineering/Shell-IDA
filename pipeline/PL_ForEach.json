@@ -1,6 +1,21 @@
 {
 	"name": "PL_ForEach",
 	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('DataArray')",
+						"type": "Expression"
+					},
+					"isSequential": true
+				}
+			}
+		],
 		"variables": {
 			"DataArray": {
 				"type": "Array",
